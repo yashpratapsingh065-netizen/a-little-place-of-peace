@@ -5,8 +5,41 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#090d1c">
 <title>A Little Place of Peace ♡</title>
+ /* Floating hearts for Saniya */
+.floating-heart {
+  position: fixed;
+  bottom: -40px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  animation: heartFloat 8s linear forwards;
+}
+
+@keyframes heartFloat {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(.7);
+    opacity: 0;
+  }
+  15% {
+    opacity: .65;
+  }
+  85% {
+    opacity: .5;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(35deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-heart {
+    animation: none;
+    display: none;
+  }
+}
 <style>
-:root{--bg:#090d1c;--panel:rgba(18,24,46,.78);--line:rgba(220,225,255,.15);--text:#f6f3ff;--muted:#c2c3dc;--pink:#f4b9d3;--lav:#c7b8ff;--gold:#ffe3a1}
+:root{--bg:#090d1c;-hu-panel:rgba(18,24,46,.78);--line:rgba(220,225,255,.15);--text:#f6f3ff;--muted:#c2c3dc;--pink:#f4b9d3;--lav:#c7b8ff;--gold:#ffe3a1}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;color:var(--text);font-family:Georgia,'Times New Roman',serif;background:var(--bg);line-height:1.7;overflow-x:hidden}
@@ -97,6 +130,25 @@ footer .tiny-heart{color:var(--pink)}
 <div class="music-note">♫</div>
 <div class="small-label">a song I wanted you to hear</div>
 <h2>A Thousand Years</h2>
+ <div class="song-selector" style="margin:20px 0;">
+  <label for="songChoice" style="display:block;margin-bottom:10px;">
+    Choose a song for your heart ♡
+  </label>
+
+  <select id="songChoice"
+    style="width:100%;padding:12px;border-radius:12px;font-size:15px;">
+    <option value="rtOvBOTyX00">A Thousand Years — Christina Perri</option>
+    <option value="2Vv-BfVoq4g">Perfect — Ed Sheeran</option>
+    <option value="nSDgHBxUbVQ">Photograph — Ed Sheeran</option>
+    <option value="syFZfO_wfMQ">Night Changes — One Direction</option>
+    <option value="RBumgq5yVrA">Let Her Go — Passenger</option>
+  </select>
+
+  <button type="button" id="playChosenSong"
+    class="primary" style="margin-top:12px;width:100%;">
+    Play selected song ♫
+  </button>
+</div>
 <p>Some feelings are too tender to explain, so maybe a melody can say them more gently. If you want, take a little pause, put on your headphones, and let this song keep you company.</p>
 <button class="primary" id="watchSong" type="button">♡ View & listen to the song</button>
 <a class="button secondary" href="https://www.youtube.com/watch?v=rtOvBOTyX00" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
@@ -157,6 +209,140 @@ footer .tiny-heart{color:var(--pink)}
 <p>Until then, be a little gentler with yourself. You deserve that, too.</p>
 <p class="signature">Sending you a little peace, wherever you are. ♡</p>
 </section>
+ <section class="card" id="surpriseLetter" style="text-align:center; margin:30px 0;">
+  <h2>A Little Letter for You, Saniya ♡</h2>
+
+  <p>
+    Some things are difficult to say out loud,
+    so I wanted to leave a little reminder here for you.
+  </p>
+
+  <button
+    id="openLetterBtn"
+    onclick="document.getElementById('letterMessage').style.display='block'; this.style.display='none';">
+    Open your little letter 💌
+  </button>
+
+  <div id="letterMessage" style="display:none; margin-top:20px; line-height:1.9;">
+    <p>Dear Saniya, ♡</p>
+
+    <p>
+      If I could give you one thing in this world,
+      it would be the ability to see yourself through my eyes.
+      Then you would understand how special you truly are.
+    </p>
+
+    <p>
+      You don't have to be strong every moment.
+      You don't have to hide your sadness or pretend to be okay.
+      You deserve kindness, peaceful moments, and reasons to smile.
+    </p>
+
+    <p>
+      Whenever you visit this little place, remember:
+      your feelings matter, your happiness matters,
+      and you deserve beautiful things in life.
+    </p>
+
+    <p>Take care of your beautiful heart. ♡</p>
+  </div>
+</section>
+ <section class="card" id="moonlitSky"
+  style="text-align:center; padding:35px 18px; overflow:hidden;
+  background:linear-gradient(180deg,#101735,#241b43,#47284b);
+  border:1px solid rgba(255,255,255,.15);">
+
+  <div style="font-size:58px; margin-bottom:10px;"
+       aria-label="Glowing moon">🌙</div>
+
+  <div style="font-size:22px; letter-spacing:12px;
+              margin:20px 0; animation:twinkle 3s infinite;">
+    ✦ · ˚ ✧ · ✦
+  </div>
+
+  <h2 style="color:#f9e7ff;">
+    A Little Universe for Saniya ♡
+  </h2>
+
+  <p style="line-height:1.9; color:#e4dcff;">
+    Somewhere beneath this same moon, the world keeps moving.
+    But here, you can pause for a moment.
+  </p>
+
+  <p style="line-height:1.9; color:#f8dff0;">
+    Let the stars remind you that even the darkest nights
+    have little lights waiting to be discovered. ✨
+  </p>
+
+  <div style="font-size:24px; margin-top:20px;">
+    ✧ ˚ · 🌟 · ˚ ✧
+  </div>
+
+  <p style="font-size:13px; opacity:.8; margin-top:18px;">
+    Take a breath. You're allowed to rest here. ♡
+  </p>
+
+</section>
+ <section class="card" id="makeAWish"
+  style="text-align:center; padding:28px 18px;">
+
+  <div style="font-size:38px;">🌠</div>
+
+  <h2>Make a Little Wish, Saniya ♡</h2>
+
+  <p>
+    Close your eyes for a moment, take a gentle breath,
+    and wish for something beautiful.
+  </p>
+
+  <button
+    type="button"
+    id="wishButton"
+    class="primary"
+    style="margin:12px 0;">
+    Send My Wish Into the Stars ✨
+  </button>
+
+  <p id="wishMessage"
+     aria-live="polite"
+     style="line-height:1.8; margin-top:16px;">
+  </p>
+</section>
+ <section class="card" id="finalMessage"
+  style="text-align:center;padding:35px 20px;
+  background:linear-gradient(145deg,#201832,#352143,#24182f);
+  border:1px solid rgba(255,210,240,.25);">
+
+  <div style="font-size:42px;margin-bottom:15px;">
+    🌙 ♡ ✨
+  </div>
+
+  <h2 style="color:#ffe0f0;">
+    Before You Go, Saniya...
+  </h2>
+
+  <p style="line-height:2;">
+    If today was difficult, I hope tomorrow feels a little lighter.
+    If you smiled today, I hope you find a hundred more reasons
+    to smile.
+  </p>
+
+  <p style="line-height:2;">
+    You don't have to have everything figured out.
+    You can take your time, grow at your own pace,
+    and become whoever you dream of being.
+  </p>
+
+  <p style="line-height:2;color:#ffd3ea;">
+    And whenever you need a little peace,
+    remember that you deserve it. ♡
+  </p>
+
+  <div style="font-size:28px;margin-top:20px;">
+    Made with ♡, just for you.
+  </div>
+
+</section>
 </main>
 <footer>made with care, not pressure <span class="tiny-heart">♡</span> · take what you need, leave the rest</footer>
 
@@ -164,13 +350,39 @@ footer .tiny-heart{color:var(--pink)}
 <div class="modal-box">
 <div class="heart">♡</div>
 <div class="eyebrow">a little message, just for you</div>
-<h2 id="welcomeTitle">Rudra, take a breath.</h2>
+<h2 id="welcomeTitle">Hey, Saniya. ♡</h2>
 <p>I made this small place because sometimes a person deserves a moment that asks nothing from them. You don't have to be cheerful here. You don't have to explain yourself. Just stay for a little while, listen to a song if you want, and remember: your presence matters.</p>
 <p>Whatever today has been, I hope this makes it feel a tiny bit softer.</p>
-<button class="primary" id="closeModal" type="button">I'll take a little moment ♡</button>
+<<button id="closeModal">Enter your little universe ♡</button> 
 <div class="open-note">A gentle reminder, not a demand to feel better.</div>
 </div>
 </div>
+ // Gentle floating hearts
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+
+  function createFloatingHeart() {
+    const heart = document.createElement('span');
+    heart.className = 'floating-heart';
+    heart.textContent = ['♡', '♥', '💕', '✧'][
+      Math.floor(Math.random() * 4)
+    ];
+
+    heart.style.left = Math.random() * 95 + 'vw';
+    heart.style.fontSize = (12 + Math.random() * 16) + 'px';
+    heart.style.color = ['#ffc5df', '#e4c9ff', '#fff0f6'][
+      Math.floor(Math.random() * 3)
+    ];
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8200);
+  }
+
+  setInterval(createFloatingHeart, 1800);
+})();
 <script>
 const modal=document.getElementById('welcomeModal');
 document.getElementById('closeModal').addEventListener('click',()=>modal.classList.add('hidden'));
@@ -183,7 +395,15 @@ document.getElementById('watchSong').addEventListener('click',()=>{
 });
 document.querySelectorAll('.feeling').forEach(btn=>btn.addEventListener('click',()=>{
  const box=document.getElementById('feelingReply');box.textContent=btn.dataset.msg;box.style.display='block';
-}));
+}));document.getElementById('playChosenSong').addEventListener('click',()=>{
+  const choice=document.getElementById('songChoice');
+  const frame=document.getElementById('songFrame');
+  const wrap=document.getElementById('videoWrap');
+
+  frame.src='https://www.youtube.com/embed/'+choice.value;
+  wrap.classList.add('show');
+  wrap.scrollIntoView({behavior:'smooth',block:'center'});
+});
 const wishes=[
 'May your mind find a little quiet, even if the world stays loud.',
 'May you discover courage that feels gentle, not forced.',
@@ -206,6 +426,31 @@ const note=document.getElementById('personalNote'),status=document.getElementByI
 try{note.value=localStorage.getItem('peace-note-rudra')||'';}catch(e){}
 document.getElementById('saveNote').addEventListener('click',()=>{try{localStorage.setItem('peace-note-rudra',note.value);status.textContent='Saved in this browser on this device. ♡';}catch(e){status.textContent='Your browser could not save this note. You can keep it here while this page stays open.';}});
 document.getElementById('clearNote').addEventListener('click',()=>{note.value='';try{localStorage.removeItem('peace-note-rudra');}catch(e){}status.textContent='A little space cleared. Take a breath. ♡';});
+ <section class="card" id="makeAWish"
+  style="text-align:center; padding:28px 18px;">
+
+  <div style="font-size:38px;">🌠</div>
+
+  <h2>Make a Little Wish, Saniya ♡</h2>
+
+  <p>
+    Close your eyes for a moment, take a gentle breath,
+    and wish for something beautiful.
+  </p>
+
+  <button
+    type="button"
+    id="wishButton"
+    class="primary"
+    style="margin:12px 0;">
+    Send My Wish Into the Stars ✨
+  </button>
+
+  <p id="wishMessage"
+     aria-live="polite"
+     style="line-height:1.8; margin-top:16px;">
+  </p>
+</section>
 </script>
 </body>
 </html>
