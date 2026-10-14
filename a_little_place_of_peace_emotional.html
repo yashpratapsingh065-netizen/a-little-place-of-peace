@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d1c">
+<title>A Little Place of Peace ♡</title>
+<style>
+:root{--bg:#090d1c;--panel:rgba(18,24,46,.78);--line:rgba(220,225,255,.15);--text:#f6f3ff;--muted:#c2c3dc;--pink:#f4b9d3;--lav:#c7b8ff;--gold:#ffe3a1}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);font-family:Georgia,'Times New Roman',serif;background:var(--bg);line-height:1.7;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 20% 10%,#35305e 0,transparent 38%),radial-gradient(ellipse at 80% 25%,#18364c 0,transparent 34%),linear-gradient(180deg,#10152b 0%,#101a31 48%,#070b17 100%)}
+.stars,.stars:before,.stars:after{position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:radial-gradient(2px 2px at 20px 30px,#fff 55%,transparent),radial-gradient(1px 1px at 90px 120px,#e5dfff 55%,transparent),radial-gradient(1px 1px at 180px 70px,#fff 55%,transparent),radial-gradient(2px 2px at 270px 170px,#c8dcff 55%,transparent),radial-gradient(1px 1px at 330px 40px,#fff 55%,transparent);background-size:360px 220px;content:"";opacity:.55;animation:twinkle 7s ease-in-out infinite alternate}
+.stars:before{content:"";transform:translate(80px,60px);opacity:.45;animation-delay:2s}.stars:after{content:"";transform:translate(180px,120px);opacity:.3;animation-delay:4s}
+@keyframes twinkle{to{opacity:.2;transform:translateY(-8px)}}
+.moon{position:fixed;top:7%;right:9%;width:78px;height:78px;border-radius:50%;background:#fff4d7;box-shadow:0 0 30px #fff1c866,0 0 90px #c8c8ff25;z-index:-1}
+.moon:after{content:"";position:absolute;top:-7px;left:20px;width:75px;height:75px;border-radius:50%;background:#141a34}
+header{max-width:1050px;margin:auto;padding:22px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:#e6dcff}
+.pill{border:1px solid var(--line);border-radius:99px;padding:6px 12px;color:var(--muted);font:12px Arial,sans-serif}
+main{max-width:850px;margin:auto;padding:26px 20px 80px}
+.hero{text-align:center;padding:50px 10px 38px}
+.eyebrow{color:var(--pink);font:12px Arial,sans-serif;letter-spacing:.23em;text-transform:uppercase}
+h1{font-size:clamp(38px,8vw,72px);line-height:1.07;font-weight:normal;letter-spacing:-.035em;margin:20px auto 18px;max-width:720px}
+h1 em{font-weight:normal;color:var(--pink)}
+.hero p{max-width:590px;margin:0 auto;color:var(--muted);font-size:18px}
+.heart{font-size:27px;color:var(--pink);display:inline-block;margin-top:22px;animation:beat 1.8s ease-in-out infinite}
+@keyframes beat{50%{transform:scale(1.16)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,5vw,38px);margin:20px 0;box-shadow:0 20px 60px #0002;backdrop-filter:blur(12px)}
+.card h2{font-size:clamp(25px,5vw,34px);font-weight:normal;margin:0 0 10px}
+.card p{color:var(--muted);margin:10px 0}
+.small-label{font:11px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--lav)}
+.message{font-size:18px;color:#f3efff}
+.message p{color:#e0deef}
+.signature{color:var(--pink)!important;font-style:italic;margin-top:22px!important}
+.music-card{background:linear-gradient(135deg,rgba(65,48,90,.68),rgba(18,35,57,.8));text-align:center}
+.music-note{font-size:32px;color:var(--gold);margin:5px}
+.music-card p{max-width:560px;margin:12px auto 22px}
+button,.button{border:0;border-radius:99px;padding:13px 21px;font-weight:bold;font-size:14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:transform .2s,filter .2s}
+button:hover,.button:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.primary{color:#20152b;background:linear-gradient(110deg,#f5c6d9,#d3c5ff)}
+.secondary{color:var(--text);background:rgba(255,255,255,.07);border:1px solid var(--line)}
+.video-wrap{display:none;margin:22px auto 0;max-width:680px;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:#05070d}
+.video-wrap.show{display:block}
+.video-wrap iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
+.note{font:12px Arial,sans-serif;color:#b9bad1!important}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:20px}
+.feeling{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:17px;padding:17px 15px;text-align:left;color:var(--text);font:15px Georgia,serif;display:block;width:100%}
+.feeling span{display:block;font:12px Arial,sans-serif;color:var(--muted);margin-top:5px}
+.reply{display:none;margin-top:18px;border-left:2px solid var(--pink);padding:12px 16px;background:#ffffff08;border-radius:0 12px 12px 0;color:#f4eafa}
+.breathe{text-align:center}
+.breath-orb{width:125px;height:125px;border-radius:50%;margin:24px auto;background:radial-gradient(circle at 35% 30%,#f6d3e5,#a8a4f5 58%,#526c9a);box-shadow:0 0 45px #b8aaff3b;animation:breathe 8s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(.78);opacity:.72}50%{transform:scale(1.12);opacity:1}}
+.stars-list{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:22px 0}
+.wish{font-size:27px;background:none;border:0;color:var(--gold);padding:7px;cursor:pointer;animation:twinkle 3s infinite alternate}
+.wish-message{min-height:30px;color:var(--pink);text-align:center}
+textarea{width:100%;min-height:115px;background:#080c19a8;border:1px solid var(--line);border-radius:15px;padding:15px;color:var(--text);font:16px Georgia,serif;resize:vertical;outline:none}
+textarea:focus{border-color:#c7b8ff}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+footer{text-align:center;color:#9fa3c0;font:12px Arial,sans-serif;padding:0 20px 34px}
+footer .tiny-heart{color:var(--pink)}
+.modal{position:fixed;inset:0;z-index:10;background:rgba(4,6,17,.78);display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(9px)}
+.modal.hidden{display:none}
+.modal-box{width:min(520px,100%);text-align:center;border:1px solid #f0c8e344;border-radius:25px;background:linear-gradient(150deg,#24223f,#111a30);padding:30px 25px;box-shadow:0 25px 100px #0008;animation:appear .7s ease-out}
+@keyframes appear{from{opacity:0;transform:translateY(15px) scale(.98)}to{opacity:1;transform:none}}
+.modal-box h2{font-size:31px;font-weight:normal;margin:8px 0 12px}
+.modal-box p{color:#dedbed}
+.modal-box .open-note{font-size:12px;color:#b8b7d2;font-family:Arial,sans-serif;margin-top:16px}
+@media(max-width:560px){header{padding:17px 16px}.brand{font-size:11px}.hero{padding-top:36px}.hero p{font-size:16px}.grid{grid-template-columns:1fr}.card{border-radius:20px}.moon{width:55px;height:55px;right:8%;top:8%}.moon:after{width:54px;height:54px;left:14px}}
+</style>
+</head>
+<body>
+<div class="stars"></div><div class="moon"></div>
+<header><div class="brand">✦ a little place of peace</div><div class="pill">made with care ♡</div></header>
+<main>
+<section class="hero">
+<div class="eyebrow">for the days that feel a little heavy</div>
+<h1>Hey, you.<br><em>You matter more than you know.</em></h1>
+<p>This little corner of the universe is just for you. No pressure to be okay. No need to explain everything. Just a moment to breathe.</p>
+<div class="heart">♡</div>
+</section>
+
+<section class="card message">
+<div class="small-label">a note for your heart</div>
+<h2>For when words are hard to find</h2>
+<p>Hey Rudra,</p>
+<p>I don't know what every day feels like from inside your heart, and I won't pretend that I do. But I hope you remember that you don't have to carry every little thing alone.</p>
+<p>You are allowed to have quiet days. You're allowed to feel tired, confused, or not quite yourself. You don't have to turn every sadness into a smile just to make the world comfortable.</p>
+<p>If today has been difficult, let this be your tiny reminder: one hard day doesn't define your whole story. You are still becoming, still learning, still worthy of kindness—even on the days when you can't see your own light.</p>
+<p>And if you ever feel like the world is too loud, come here for a minute. Imagine the sky getting softer, the stars staying with you, and someone quietly wishing that life would be gentle with you.</p>
+<p>You don't have to reply to this page or find the perfect words. Just take what comfort you can, and leave the rest here for a while.</p>
+<p class="signature">I'm glad you exist. Truly. ♡</p>
+</section>
+
+<section class="card music-card" id="song">
+<div class="music-note">♫</div>
+<div class="small-label">a song I wanted you to hear</div>
+<h2>A Thousand Years</h2>
+<p>Some feelings are too tender to explain, so maybe a melody can say them more gently. If you want, take a little pause, put on your headphones, and let this song keep you company.</p>
+<button class="primary" id="watchSong" type="button">♡ View & listen to the song</button>
+<a class="button secondary" href="https://www.youtube.com/watch?v=rtOvBOTyX00" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+<div class="video-wrap" id="videoWrap" aria-label="A Thousand Years official music video">
+<iframe id="songFrame" title="Christina Perri — A Thousand Years official music video" data-src="https://www.youtube-nocookie.com/embed/rtOvBOTyX00?autoplay=0&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<p class="note">The video appears here when you tap the button. You can press play whenever you're ready. If it doesn't load in this page, use “Open on YouTube.”</p>
+</section>
+
+<section class="card">
+<div class="small-label">a small check-in</div>
+<h2>How is your heart today?</h2>
+<p>You don't need to choose the “right” feeling. Just choose what feels closest, even if you can't fully explain it.</p>
+<div class="grid">
+<button class="feeling" data-msg="You don't need to solve your whole life tonight. Unclench your jaw, lower your shoulders, and take one slow breath. One small step is enough for now.">A little overwhelmed <span>Let's make this moment smaller.</span></button>
+<button class="feeling" data-msg="Missing someone or something can sit quietly in the heart and still feel heavy. You don't have to push it away. Let the feeling visit without letting it tell you that you'll feel this way forever.">Missing someone <span>It's okay to care deeply.</span></button>
+<button class="feeling" data-msg="You don't have to earn rest by doing more. You are allowed to pause before everything is finished. Drink some water, get comfortable, and give yourself the softness you offer other people.">Tired in every way <span>You deserve a gentle pause.</span></button>
+<button class="feeling" data-msg="I'm glad there is a little light in your day. You don't have to make the happy moment bigger or explain it. Let yourself enjoy it exactly as it is.">Actually doing okay ♡ <span>Let this moment be enough.</span></button>
+<button class="feeling" data-msg="Not knowing what you feel is a feeling too. You can sit with the uncertainty without naming it right away. Be patient with yourself; clarity doesn't always arrive on command.">I can't explain it <span>You don't need perfect words.</span></button>
+<button class="feeling" data-msg="If you feel alone, try reaching out to someone safe—even with a tiny message like “Can you keep me company for a bit?” You deserve real support, not just the expectation to be strong.">Feeling alone <span>You deserve connection and care.</span></button>
+</div>
+<div class="reply" id="feelingReply" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card breathe">
+<div class="small-label">let's slow the world down</div>
+<h2>Just one breath at a time</h2>
+<p>Follow the circle. Breathe in as it grows, then breathe out slowly as it softens. There is nowhere else you need to be for these few seconds.</p>
+<div class="breath-orb" aria-hidden="true"></div>
+<p id="breathText">Breathe in… and gently breathe out.</p>
+<button class="secondary" id="breathButton" type="button">Start a quiet 30 seconds</button>
+</section>
+
+<section class="card">
+<div class="small-label">make a tiny wish</div>
+<h2>Choose a star ✧</h2>
+<p>Tap any star. It won't change everything at once—but let it stand for one kind thing you hope life brings you.</p>
+<div class="stars-list">
+<button class="wish" aria-label="Wish for peace">✦</button><button class="wish" aria-label="Wish for courage">✧</button><button class="wish" aria-label="Wish for hope">✦</button><button class="wish" aria-label="Wish for rest">✧</button><button class="wish" aria-label="Wish for warmth">✦</button>
+</div>
+<div class="wish-message" id="wishMessage" aria-live="polite">Your wish can be small. Small is still meaningful.</div>
+</section>
+
+<section class="card">
+<div class="small-label">a little space just for you</div>
+<h2>Leave a thought here</h2>
+<p>If something is sitting on your heart, you can write it down here. It stays in this browser on this device; it isn't sent to me or anyone else.</p>
+<textarea id="personalNote" placeholder="No perfect words needed…"></textarea>
+<div class="actions"><button class="primary" id="saveNote" type="button">Save my note on this device</button><button class="secondary" id="clearNote" type="button">Let it go</button></div>
+<p class="note" id="noteStatus" aria-live="polite"></p>
+</section>
+
+<section class="card message">
+<div class="small-label">before you go</div>
+<h2>One last thing…</h2>
+<p>Please don't measure your worth by how productive you were today, how quickly you replied, or how well you hid the hard parts. You are a person, not a list of things to get right.</p>
+<p>I hope something unexpectedly kind finds you soon. I hope you get a peaceful night, a genuine laugh, and a reminder that you matter to people more than you may realize.</p>
+<p>Until then, be a little gentler with yourself. You deserve that, too.</p>
+<p class="signature">Sending you a little peace, wherever you are. ♡</p>
+</section>
+</main>
+<footer>made with care, not pressure <span class="tiny-heart">♡</span> · take what you need, leave the rest</footer>
+
+<div class="modal" id="welcomeModal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+<div class="modal-box">
+<div class="heart">♡</div>
+<div class="eyebrow">a little message, just for you</div>
+<h2 id="welcomeTitle">Rudra, take a breath.</h2>
+<p>I made this small place because sometimes a person deserves a moment that asks nothing from them. You don't have to be cheerful here. You don't have to explain yourself. Just stay for a little while, listen to a song if you want, and remember: your presence matters.</p>
+<p>Whatever today has been, I hope this makes it feel a tiny bit softer.</p>
+<button class="primary" id="closeModal" type="button">I'll take a little moment ♡</button>
+<div class="open-note">A gentle reminder, not a demand to feel better.</div>
+</div>
+</div>
+<script>
+const modal=document.getElementById('welcomeModal');
+document.getElementById('closeModal').addEventListener('click',()=>modal.classList.add('hidden'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.add('hidden')});
+document.getElementById('watchSong').addEventListener('click',()=>{
+ const wrap=document.getElementById('videoWrap'),frame=document.getElementById('songFrame');
+ wrap.classList.add('show');
+ if(!frame.src)frame.src=frame.dataset.src;
+ wrap.scrollIntoView({behavior:'smooth',block:'center'});
+});
+document.querySelectorAll('.feeling').forEach(btn=>btn.addEventListener('click',()=>{
+ const box=document.getElementById('feelingReply');box.textContent=btn.dataset.msg;box.style.display='block';
+}));
+const wishes=[
+'May your mind find a little quiet, even if the world stays loud.',
+'May you discover courage that feels gentle, not forced.',
+'May hope find its way back in small, ordinary moments.',
+'May you give yourself permission to rest without guilt.',
+'May you feel loved in ways that are clear, calm, and real.'
+];
+document.querySelectorAll('.wish').forEach((btn,i)=>btn.addEventListener('click',()=>{
+ document.getElementById('wishMessage').textContent=wishes[i];
+}));
+let breathTimer=null;
+document.getElementById('breathButton').addEventListener('click',()=>{
+ const button=document.getElementById('breathButton'),label=document.getElementById('breathText');
+ if(breathTimer){clearInterval(breathTimer);breathTimer=null;}
+ let remaining=30;label.textContent='Breathe in slowly…';button.textContent='30 seconds remaining';
+ const tick=()=>{remaining--;if(remaining<=0){clearInterval(breathTimer);breathTimer=null;button.textContent='Start a quiet 30 seconds';label.textContent='You made a little room for yourself. That counts. ♡';return;}label.textContent=remaining%8<4?'Breathe in gently…':'Breathe out slowly…';button.textContent=remaining+' seconds remaining';};
+ breathTimer=setInterval(tick,1000);
+});
+const note=document.getElementById('personalNote'),status=document.getElementById('noteStatus');
+try{note.value=localStorage.getItem('peace-note-rudra')||'';}catch(e){}
+document.getElementById('saveNote').addEventListener('click',()=>{try{localStorage.setItem('peace-note-rudra',note.value);status.textContent='Saved in this browser on this device. ♡';}catch(e){status.textContent='Your browser could not save this note. You can keep it here while this page stays open.';}});
+document.getElementById('clearNote').addEventListener('click',()=>{note.value='';try{localStorage.removeItem('peace-note-rudra');}catch(e){}status.textContent='A little space cleared. Take a breath. ♡';});
+</script>
+</body>
+</html>
